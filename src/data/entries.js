@@ -21,6 +21,8 @@
  * ------------------------------------------------------------------
  */
 
+import SimpleCodeViewer from "../components/CodePreviwer";
+
 const entries = [
   {
     date: '2026-09-23',
@@ -28,15 +30,19 @@ const entries = [
       {
         id: 'react-web-sockets', topic: 'React', difficulty: 'Medium',
         question: 'What are web sockets in react with an example',
-        answer: `WebSocket is a browser API that creates a persistent, two-way connection between a React application and a WebSocket server.\n\nUnlike fetch(), where the client usually sends a request and waits for a response, WebSockets allow the server to push data to React at any time.\n\n},
-      
-      Example:
-        import { useEffect, useState } from "react";
+        answer: (   
+           <SimpleCodeViewer codeString={`web sockets in React allow for a persistent, two - way 
+  connection between the client and server, enabling real- time communication.
+Unlike fetch(), where the client usually sends a request 
+and waits for a response, WebSockets allow the server to 
+push data to React at any time.
+            Example:
+  import { useEffect, useState } from "react";
 
-        function Notifications() {
-          const [message, setMessage] = useState("");
+  function Notifications() {
+      const [message, setMessage] = useState("");
 
-          useEffect(() => {
+  useEffect(() => {
   const socket = new WebSocket("wss://example.com");
 
   socket.onopen = () => {
@@ -56,10 +62,22 @@ const entries = [
   };
 }, []);
 
-return <div>{message}</div>;
-}
-      
-        `}
+          <div>{message}</div>`} />
+        )
+       
+        
+      },
+        ,{
+          id: 'javascript-async-await-23092026',
+          topic: 'JavaScript',
+          difficulty: 'Medium',
+          question: 'What async keyword does when used before a function in JavaScript?',
+          answer: `
+          The async keyword is placed before a function declaration. 
+          It does two main things:Forces the function to always return a Promise.
+          If the function returns a normal value (like a string or a number), JavaScript automatically wraps that value inside a resolved Promise
+          `,
+        }
     ]
   },
   {
