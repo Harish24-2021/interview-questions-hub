@@ -23,8 +23,65 @@
 
 const entries = [
   {
+    date: '2026-09-23',
+    questions: [
+      {
+        id: 'react-web-sockets', topic: 'React', difficulty: 'Medium',
+        question: 'What are web sockets in react with an example',
+        answer: `WebSocket is a browser API that creates a persistent, two-way connection between a React application and a WebSocket server.\n\nUnlike fetch(), where the client usually sends a request and waits for a response, WebSockets allow the server to push data to React at any time.\n\n},
+      
+      Example:
+        import { useEffect, useState } from "react";
+
+        function Notifications() {
+          const [message, setMessage] = useState("");
+
+          useEffect(() => {
+  const socket = new WebSocket("wss://example.com");
+
+  socket.onopen = () => {
+    console.log("Connected");
+  };
+
+  socket.onmessage = (event) => {
+    setMessage(event.data);
+  };
+
+  socket.onclose = () => {
+    console.log("Disconnected");
+  };
+
+  return () => {
+    socket.close();
+  };
+}, []);
+
+return <div>{message}</div>;
+}
+      
+        `}
+    ]
+  },
+  {
     date: '2026-09-22',
     questions: [
+      {
+        id: '2026-09-22-react-code-splitting',
+        topic: 'React',
+        difficulty: 'Medium',
+        question: 'What is React code splitting and why is it useful?',
+        answer:
+          `React code splitting is a technique to split your application into smaller bundles that can be loaded on demand. ` +
+          `It is useful because it reduces the initial load time of the application by only loading the necessary code for the current view, ` +
+          `improving performance and user experience. ` +
+          `The rest of the chunks are requested dynamically as the user navigates your app or interacts with features.
+          How to Implement Code Splitting in React?
+          The easiest and most common way to implement code splitting is by combining Native JavaScript dynamic imports(import()) with React's built-in lazy and Suspense features
+1. Component - Based Splitting: Use React.lazy() to dynamically import components only when they are needed, reducing the initial bundle size.
+          2. Route - Based Splitting: Use a library like React Router to dynamically import route components, ensuring that only the code for the current route is loaded initially.
+          
+          `,
+      },
       {
         id: '2026-09-22-react-server-components',
         topic: 'React',
@@ -55,33 +112,41 @@ const entries = [
     date: '2026-09-21',
     questions: [
       {
-        id: '2026-09-21-node-event-loop-phases',
-        topic: 'Node.js',
-        difficulty: 'Hard',
+        id: '2026-09-22-react-stop-watch-implementation',
+        topic: 'React',
+        difficulty: 'Medium',
+        question: 'How would you implement a stop-watch component in React?',
+        answer:
+          `Find the  code implementation in code sandbox link https://codesandbox.io/p/sandbox/stopwatch-implementation-yw4tqq`
+      },
+{
+  id: '2026-09-21-node-event-loop-phases',
+    topic: 'Node.js',
+      difficulty: 'Hard',
         question: 'Name the main phases of the Node.js event loop and what runs in each.',
-        answer:
-          'In order: timers (setTimeout/setInterval callbacks), pending callbacks (deferred I/O callbacks), poll (retrieve new I/O events, execute I/O callbacks), check (setImmediate callbacks), and close callbacks (e.g. socket.on("close")). process.nextTick and Promise microtasks run between every phase, not as a phase themselves.',
+          answer:
+  'In order: timers (setTimeout/setInterval callbacks), pending callbacks (deferred I/O callbacks), poll (retrieve new I/O events, execute I/O callbacks), check (setImmediate callbacks), and close callbacks (e.g. socket.on("close")). process.nextTick and Promise microtasks run between every phase, not as a phase themselves.',
       },
-      {
-        id: '2026-09-21-html-semantic-tags',
-        topic: 'HTML',
-        difficulty: 'Easy',
+{
+  id: '2026-09-21-html-semantic-tags',
+    topic: 'HTML',
+      difficulty: 'Easy',
         question: 'Why prefer <button> over a styled <div onClick> for a clickable action?',
-        answer:
-          '<button> is keyboard-focusable and operable with Enter/Space by default, is announced correctly by screen readers as a button, and participates in form submission when needed. A <div> requires manually re-implementing all of that with tabindex, key handlers, and ARIA roles to reach the same baseline accessibility.',
+          answer:
+  '<button> is keyboard-focusable and operable with Enter/Space by default, is announced correctly by screen readers as a button, and participates in form submission when needed. A <div> requires manually re-implementing all of that with tabindex, key handlers, and ARIA roles to reach the same baseline accessibility.',
       },
-      {
-        id: '2026-09-21-system-design-rate-limiter',
-        topic: 'System Design',
-        difficulty: 'Hard',
+{
+  id: '2026-09-21-system-design-rate-limiter',
+    topic: 'System Design',
+      difficulty: 'Hard',
         question: 'Design a rate limiter for a public API. What algorithm would you pick and why?',
-        answer:
-          'A token bucket is usually the best default: each client has a bucket that refills at a fixed rate and requests consume tokens, which allows short bursts while enforcing a long-run average. Sliding window log/counter variants give smoother limits at higher memory cost. Store bucket state in Redis with atomic INCR/EXPIRE (or a Lua script) so it works correctly across multiple API instances.',
+          answer:
+  'A token bucket is usually the best default: each client has a bucket that refills at a fixed rate and requests consume tokens, which allows short bursts while enforcing a long-run average. Sliding window log/counter variants give smoother limits at higher memory cost. Store bucket state in Redis with atomic INCR/EXPIRE (or a Lua script) so it works correctly across multiple API instances.',
       },
     ],
   },
-  {
-    date: '2026-09-19',
+{
+  date: '2026-09-19',
     questions: [
       {
         id: '2026-09-19-react-usememo',
@@ -109,8 +174,8 @@ const entries = [
       },
     ],
   },
-  {
-    date: '2026-09-18',
+{
+  date: '2026-09-18',
     questions: [
       {
         id: '2026-09-18-css-specificity',
