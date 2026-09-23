@@ -117,7 +117,7 @@ return <div>{message}</div>;
         difficulty: 'Medium',
         question: 'How would you implement a stop-watch component in React?',
         answer:
-          `Find the  code implementation in code sandbox link https://codesandbox.io/p/sandbox/stopwatch-implementation-yw4tqq`
+          `Find the  code implementation in code sandbox link`
       },
 {
   id: '2026-09-21-node-event-loop-phases',
