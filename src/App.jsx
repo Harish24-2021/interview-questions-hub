@@ -6,6 +6,7 @@ import TopicFilter from './components/TopicFilter';
 import SearchBar from './components/SearchBar';
 import DailyDigest from './components/DailyDigest';
 import Footer from './components/Footer';
+import PublisherModal from './components/PublisherModal';
 
 function sortByDateDesc(entries) {
   return [...entries].sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -15,6 +16,7 @@ export default function App() {
   const sortedEntries = useMemo(() => sortByDateDesc(rawEntries), []);
   const [activeTopic, setActiveTopic] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
+  const [isPublisherModalOpen, setIsPublisherModalOpen] = useState(false);
 
   const topicsInUse = useMemo(() => {
     const found = new Set();
@@ -51,6 +53,7 @@ export default function App() {
   const lastUpdated = sortedEntries[0]?.date;
 
   return (
+    <>
     <div className="app-shell">
       <Header
         totalQuestions={totalQuestions}
@@ -66,6 +69,17 @@ export default function App() {
           onSelect={setActiveTopic}
         />
       </div>
+      <button onClick={() => setIsPublisherModalOpen(true)}>
+        Open Publisher Modal
+      </button>
+      {isPublisherModalOpen && (
+        <>
+          <PublisherModal 
+            onSave={() => setIsPublisherModalOpen(false)}
+            onClose={() => setIsPublisherModalOpen(false)}
+          />
+        </>
+      )}
 
       <main className="app-main">
         {filteredEntries.length > 0 ? (
@@ -79,5 +93,12 @@ export default function App() {
 
       <Footer lastUpdated={lastUpdated} />
     </div>
+    {isPublisherModalOpen && (
+      <PublisherModal 
+        onSave={() => setIsPublisherModalOpen(false)}
+        onClose={() => setIsPublisherModalOpen(false)}
+      />
+    )}  
+    </>
   );
 }

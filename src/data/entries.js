@@ -25,13 +25,32 @@ import SimpleCodeViewer from "../components/CodePreviwer";
 
 const entries = [
   {
+    date: '2026-09-24',
+    questions: [
+      {
+        id: 'ssr and its benefits',
+        topic: 'JavaScript',
+        difficulty: 'Easy',
+        question: 'what is Server side rendering, what are its benefits.',
+        answer: `
+        Server-Side Rendering (SSR) is a web development process where a webpage's full HTML is created on a server rather than inside the user's web browser. When you open a site, the server sends a ready-to-display page straight to your screen. (Note: "SSR" can also mean a Solid State Relay in electronics, but in tech it almost always refers to Server-Side Rendering).🚀 Main Benefits of SSR:
+        Faster First Load: Users see text and images right away without waiting for heavy scripts to run.
+        Better SEO: Search engine bots can easily read and index the fully formed HTML.
+        Good for Slow Devices: Phones and older computers do not struggle to build the page.
+        Improved Performance: By offloading rendering to the server, the client device can focus on displaying content rather than heavy computations.
+        
+        `,
+      },
+    ],
+  },
+  {
     date: '2026-09-23',
     questions: [
       {
         id: 'react-web-sockets', topic: 'React', difficulty: 'Medium',
         question: 'What are web sockets in react with an example',
-        answer: (   
-           <SimpleCodeViewer codeString={`web sockets in React allow for a persistent, two - way 
+        answer: (
+          <SimpleCodeViewer codeString={`web sockets in React allow for a persistent, two - way 
   connection between the client and server, enabling real- time communication.
 Unlike fetch(), where the client usually sends a request 
 and waits for a response, WebSockets allow the server to 
@@ -64,20 +83,20 @@ push data to React at any time.
 
           <div>{message}</div>`} />
         )
-       
-        
+
+
       },
-        ,{
-          id: 'javascript-async-await-23092026',
-          topic: 'JavaScript',
-          difficulty: 'Medium',
-          question: 'What async keyword does when used before a function in JavaScript?',
-          answer: `
+      , {
+        id: 'javascript-async-await-23092026',
+        topic: 'JavaScript',
+        difficulty: 'Medium',
+        question: 'What async keyword does when used before a function in JavaScript?',
+        answer: `
           The async keyword is placed before a function declaration. 
           It does two main things:Forces the function to always return a Promise.
           If the function returns a normal value (like a string or a number), JavaScript automatically wraps that value inside a resolved Promise
           `,
-        }
+      }
     ]
   },
   {
@@ -137,34 +156,34 @@ push data to React at any time.
         answer:
           `Find the  code implementation in code sandbox link`
       },
-{
-  id: '2026-09-21-node-event-loop-phases',
-    topic: 'Node.js',
-      difficulty: 'Hard',
+      {
+        id: '2026-09-21-node-event-loop-phases',
+        topic: 'Node.js',
+        difficulty: 'Hard',
         question: 'Name the main phases of the Node.js event loop and what runs in each.',
-          answer:
-  'In order: timers (setTimeout/setInterval callbacks), pending callbacks (deferred I/O callbacks), poll (retrieve new I/O events, execute I/O callbacks), check (setImmediate callbacks), and close callbacks (e.g. socket.on("close")). process.nextTick and Promise microtasks run between every phase, not as a phase themselves.',
+        answer:
+          'In order: timers (setTimeout/setInterval callbacks), pending callbacks (deferred I/O callbacks), poll (retrieve new I/O events, execute I/O callbacks), check (setImmediate callbacks), and close callbacks (e.g. socket.on("close")). process.nextTick and Promise microtasks run between every phase, not as a phase themselves.',
       },
-{
-  id: '2026-09-21-html-semantic-tags',
-    topic: 'HTML',
-      difficulty: 'Easy',
+      {
+        id: '2026-09-21-html-semantic-tags',
+        topic: 'HTML',
+        difficulty: 'Easy',
         question: 'Why prefer <button> over a styled <div onClick> for a clickable action?',
-          answer:
-  '<button> is keyboard-focusable and operable with Enter/Space by default, is announced correctly by screen readers as a button, and participates in form submission when needed. A <div> requires manually re-implementing all of that with tabindex, key handlers, and ARIA roles to reach the same baseline accessibility.',
+        answer:
+          '<button> is keyboard-focusable and operable with Enter/Space by default, is announced correctly by screen readers as a button, and participates in form submission when needed. A <div> requires manually re-implementing all of that with tabindex, key handlers, and ARIA roles to reach the same baseline accessibility.',
       },
-{
-  id: '2026-09-21-system-design-rate-limiter',
-    topic: 'System Design',
-      difficulty: 'Hard',
+      {
+        id: '2026-09-21-system-design-rate-limiter',
+        topic: 'System Design',
+        difficulty: 'Hard',
         question: 'Design a rate limiter for a public API. What algorithm would you pick and why?',
-          answer:
-  'A token bucket is usually the best default: each client has a bucket that refills at a fixed rate and requests consume tokens, which allows short bursts while enforcing a long-run average. Sliding window log/counter variants give smoother limits at higher memory cost. Store bucket state in Redis with atomic INCR/EXPIRE (or a Lua script) so it works correctly across multiple API instances.',
+        answer:
+          'A token bucket is usually the best default: each client has a bucket that refills at a fixed rate and requests consume tokens, which allows short bursts while enforcing a long-run average. Sliding window log/counter variants give smoother limits at higher memory cost. Store bucket state in Redis with atomic INCR/EXPIRE (or a Lua script) so it works correctly across multiple API instances.',
       },
     ],
   },
-{
-  date: '2026-09-19',
+  {
+    date: '2026-09-19',
     questions: [
       {
         id: '2026-09-19-react-usememo',
@@ -192,8 +211,8 @@ push data to React at any time.
       },
     ],
   },
-{
-  date: '2026-09-18',
+  {
+    date: '2026-09-18',
     questions: [
       {
         id: '2026-09-18-css-specificity',
